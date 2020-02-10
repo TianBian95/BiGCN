@@ -1,7 +1,7 @@
 import random
 from random import shuffle
 import os
-vocabulary_size=5000
+
 cwd=os.getcwd()
 
 def load5foldData(obj):

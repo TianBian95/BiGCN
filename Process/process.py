@@ -2,12 +2,11 @@ import os
 from Process.dataset import GraphDataset,BiGraphDataset,UdGraphDataset
 cwd=os.getcwd()
 
-vocabulary_size = 5000
+
 ################################### load tree#####################################
 def loadTree(dataname):
     if 'Twitter' in dataname:
-        treePath = os.path.join(cwd,'data/'+dataname+'/data.TD_RvNN.vol_' + str(
-            vocabulary_size)+ '.txt')
+        treePath = os.path.join(cwd,'data/'+dataname+'/data.TD_RvNN.vol_5000.txt')
         print("reading twitter tree")
         treeDic = {}
         for line in open(treePath):
@@ -27,7 +26,7 @@ def loadTree(dataname):
             line = line.rstrip()
             eid, indexP, indexC = line.split('\t')[0], line.split('\t')[1], int(line.split('\t')[2])
             if len(line.split('\t')) == 6:
-                Vec = line.split('\t')[5]
+                Vec = line.split('\t')[3]
             else:
                 Vec="1:0"
             if not treeDic.__contains__(eid):
