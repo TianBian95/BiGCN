@@ -14,17 +14,9 @@ The Weibo datafile 'weibotree.txt' is in a tab-sepreted column format, where eac
 1: root-id -- an unique identifier describing the tree (weiboid of the root);  
 2: index-of-parent-weibo -- an index number of the parent weibo for the current weibo;  
 3: index-of-the-current-weibo -- an index number of the current weibo;  
-4: Fill with '1', no special meaning.  
-5: Fill with '1', no special meaning.  
-6: list-of-index-and-counts -- the rest of the line contains space separated index-count pairs, where a index-count pair is in format of "index:count", E.g., "index1:count1 index2:count2" (extracted from the "text" field in the json format from Weibo raw datasets)  
+4: list-of-index-and-counts -- the rest of the line contains space separated index-count pairs, where a index-count pair is in format of "index:count", E.g., "index1:count1 index2:count2" (extracted from the "text" field in the json format from Weibo raw datasets)  
 
-The Twitter datafile 'data.TD_RvNN.vol_5000.txt' is in a tab-sepreted column format, where each row corresponds to a tweet. Consecutive columns correspond to the following pieces of information:  
-1: root-id -- an unique identifier describing the tree (tweetid of the root);  
-2: index-of-parent-tweet -- an index number of the parent tweet for the current tweet;  
-3: index-of-the-current-tweet -- an index number of the current tweet;  
-4: parent-number -- the total number of the parent node in the tree that the current tweet is belong to;  
-5: text-length -- the maximum length of all the texts from the tree that the current tweet is belong to;  
-6: list-of-index-and-counts -- the rest of the line contains space separated index-count pairs, where a index-count pair is in format of "index:count", E.g., "index1:count1 index2:count2" (extracted from the "text" field in the json format from Twitter)  
+The details of Twitter datafile 'data.TD_RvNN.vol_5000.txt' can be seen at https://github.com/majingCUHK/Rumor_RvNN.
 
 Dependencies:  
 python==3.5.2  
