@@ -24,11 +24,7 @@ def loadTree(dataname):
         treeDic = {}
         for line in open(treePath):
             line = line.rstrip()
-            eid, indexP, indexC = line.split('\t')[0], line.split('\t')[1], int(line.split('\t')[2])
-            if len(line.split('\t')) == 6:
-                Vec = line.split('\t')[3]
-            else:
-                Vec="1:0"
+            eid, indexP, indexC,Vec = line.split('\t')[0], line.split('\t')[1], int(line.split('\t')[2]),line.split('\t')[3]
             if not treeDic.__contains__(eid):
                 treeDic[eid] = {}
             treeDic[eid][indexC] = {'parent': indexP, 'vec': Vec}
