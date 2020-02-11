@@ -52,15 +52,15 @@ on macOS.
 # Reproduce the experimental results:  
 Run script 
 ```
-sh main.sh
+$ sh main.sh
 ```
 and choose "model/Weibo/BiGCN_Weibo.py" for BiGCN model on Weibo dataset or "model/Twitter/BiGCN_Twitter.py" on Twitter15/Twitter16 dataset.  
 
-When reproducing the experimental results, two parameters need to be added, representing the datasetname and iteration times respectively. E.g., run 
+In "main.sh", two arguments need to be specified, representing the datasetname and iteration times respectively. E.g., 
 ```
 python ./model/Twitter/BiGCN_Twitter.py Twitter15 100
 ```
-in "main.sh" will reproduce the average experimental results of 100 iterations of BiGCN model on Twitter15 dataset with 5-fold cross-validation.  
+will reproduce the average experimental results of 100 iterations of BiGCN model on Twitter15 dataset with 5-fold cross-validation.  
 
 If you find this code useful, please let us know and cite our paper.  
 If you have any question, please contact Tian at: bt18 at mails dot tsinghua dot edu dot cn.
