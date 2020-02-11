@@ -29,10 +29,38 @@ torch_geometric==1.3.2
 tqdm==4.40.0  
 joblib==0.14.1  
 
+Make sure that cuda/bin, cuda/include and cuda/lib64 are in your $PATH, $CPATH and $LD_LIBRARY_PATH respectively before the installation, e.g.:
+```
+$ echo $PATH
+>>> /usr/local/cuda/bin:...
+
+$ echo $CPATH
+>>> /usr/local/cuda/include:...
+```
+and
+```
+$ echo $LD_LIBRARY_PATH
+>>> /usr/local/cuda/lib64
+```
+on Linux or
+```
+$ echo $DYLD_LIBRARY_PATH
+>>> /usr/local/cuda/lib
+```
+on macOS. 
+
 # Reproduce the experimental results:  
-Run script "main.sh", and choose "model/Weibo/BiGCN_Weibo.py" for BiGCN model on Weibo dataset or "model/Titter/BiGCN_Twitter.py" on Twitter15/Twitter16 dataset.  
-When reproducing the experimental results, two parameters need to be added, representing the datasetname and iteration times respectively.  
-E.g., run 'python ./model/Twitter/BiGCN_Twitter.py Twitter15 100' in "main.sh" will reproduce the average experimental results of 100 iterations of BiGCN model on Twitter15 dataset with 5-fold cross-validation.  
+Run script 
+```
+sh main.sh
+```
+and choose "model/Weibo/BiGCN_Weibo.py" for BiGCN model on Weibo dataset or "model/Twitter/BiGCN_Twitter.py" on Twitter15/Twitter16 dataset.  
+
+When reproducing the experimental results, two parameters need to be added, representing the datasetname and iteration times respectively. E.g., run 
+```
+python ./model/Twitter/BiGCN_Twitter.py Twitter15 100
+```
+in "main.sh" will reproduce the average experimental results of 100 iterations of BiGCN model on Twitter15 dataset with 5-fold cross-validation.  
 
 If you find this code useful, please let us know and cite our paper.  
 If you have any question, please contact Tian at: bt18 at mails dot tsinghua dot edu dot cn.
