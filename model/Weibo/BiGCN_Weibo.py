@@ -34,7 +34,7 @@ class TDrumorGCN(th.nn.Module):
         x = F.relu(x)
         x = F.dropout(x, training=self.training)
         x = self.conv2(x, edge_index)
-        x = F.log_softmax(x, dim=1)
+        x=F.relu(x)
         root_extend = th.zeros(len(data.batch), x2.size(1)).to(device)
         for num_batch in range(batch_size):
             index = (th.eq(data.batch, num_batch))
@@ -64,7 +64,7 @@ class BUrumorGCN(th.nn.Module):
         x = F.relu(x)
         x = F.dropout(x, training=self.training)
         x = self.conv2(x, edge_index)
-        x = F.log_softmax(x, dim=1)
+        x = F.relu(x)
         root_extend = th.zeros(len(data.batch), x2.size(1)).to(device)
         for num_batch in range(batch_size):
             index = (th.eq(data.batch, num_batch))
@@ -104,9 +104,9 @@ def train_GCN(treeDic, x_test, x_train,TDdroprate,BUdroprate,lr, weight_decay,pa
     for epoch in range(n_epochs):
         traindata_list, testdata_list = loadBiData(dataname, treeDic, x_train, x_test, TDdroprate,BUdroprate)
         train_loader = DataLoader(traindata_list, batch_size=batchsize,
-                                  shuffle=False, num_workers=30)
+                                  shuffle=False, num_workers=10)
         test_loader = DataLoader(testdata_list, batch_size=batchsize,
-                                 shuffle=True, num_workers=30)
+                                 shuffle=True, num_workers=10)
         avg_loss,avg_acc = [],[]
         batch_idx = 0
         tqdm_train_loader = tqdm(train_loader)
